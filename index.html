@@ -1,41 +1,58 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-	<head>
-		<title>James Anderson</title>
-		<style>
-			body {
-				font-family: sans-serif;
-				margin: 0;
-				padding: 0;
-				color: #333;
-			}
-			header {
-				margin: 0;
-				padding: 1em;
-				background: #7c9278;
-			}
-			a, a:hover, a:visited {
-				color: #333;
-				text-decoration: none;
-			}
-			a:hover {
-				text-decoration: underline;
-			}
-			#name {
-				font-size: 1.5em;
-			}
-			article {
-				margin: 1em;
-			}
-		</style>
-	</head>
-	<body>
-		<header>
-			<span id="name"><a href="/">James Anderson</a></span>
-		</header>
-		<article>
-			<p>Hello, world!</p>
-			<p>This website coming soon. :)</p>
-		</article>
-	</body>
+  <head>
+    <title>James Anderson</title>
+    <style>
+      html {
+        color: #333;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-weight: 900;
+        height: 100%;
+        width: 100%;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      a,
+      a:hover,
+      a:visited {
+        color: #333;
+        text-decoration: none;
+      }
+      #name {
+        font-size: 1.5em;
+        color: blue;
+        border-bottom: 3px solid #eee;
+      }
+      #contact-link {
+        background: #eee;
+        padding: .25em;
+        border-right: 2px solid #ddd;
+        border-bottom: 2px solid #ddd;
+      }
+      #contact-link:hover {
+        border-color: #ccc;
+        background: #ddd;
+      }
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      article {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <article>
+      <p><span id="name">James Anderson</span></p>
+      <p>Hi, I'm James. I write software in Brooklyn, NY.</p>
+      <ul><li><a href="mailto@james@jamesa.me" id="contact-link">get in touch</a></li></ul>
+    </article>
+  </body>
 </html>
