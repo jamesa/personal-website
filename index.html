@@ -1,9 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-33027412-3"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-33027412-3");
+    </script>
+
     <title>James Anderson</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Software engineer in Brooklyn, NY. Get in touch!">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Software engineer in Brooklyn, NY. Get in touch!"
+    />
     <style>
       html {
         color: #333;
@@ -32,7 +49,7 @@
       }
       #contact-link {
         background: #eee;
-        padding: .25em;
+        padding: 0.25em;
         border-right: 2px solid #ddd;
         border-bottom: 2px solid #ddd;
       }
@@ -54,7 +71,12 @@
     <article>
       <p><span id="name">James Anderson</span></p>
       <p>Hi, I'm James. I write software in Brooklyn, NY.</p>
-      <ul><li><a href="mailto@james@jamesa.me" id="contact-link">get in touch</a></li></ul><!-- todo: add more links ;) -->
+      <ul>
+        <li>
+          <a href="mailto:james@jamesa.me" id="contact-link">get in touch</a>
+        </li>
+      </ul>
+      <!-- todo: add more links ;) -->
     </article>
   </body>
 </html>
