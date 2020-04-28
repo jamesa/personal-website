@@ -84,25 +84,7 @@
         <span id="name"><a href="/">James Anderson</a></span>
       </p>
       <p>Flyover - April 28, 2020.</p>
-      <video id="video" controls></video>
+      <video id="video" controls src="https://stream.mux.com/BpvbWScAwbd02NkavYO62f9dB8sMNl6Vw.m3u8"></video>
     </article>
-
-    <!-- Use HLS.js to support the HLS format in browsers. -->
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@0.8.2"></script>
-    <script>
-      (function(){
-        // Replace with your asset's playback ID
-        var playbackId = "BpvbWScAwbd02NkavYO62f9dB8sMNl6Vw";
-        var url = "https://stream.mux.com/"+playbackId+".m3u8";
-
-        // HLS.js-specific setup code
-        if (Hls.isSupported()) {
-          var video = document.getElementById("video");
-          var hls = new Hls();
-          hls.loadSource(url);
-          hls.attachMedia(video);
-        }
-      })();
-    </script>
   </body>
 </html>
