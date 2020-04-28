@@ -15,12 +15,12 @@
       gtag("config", "UA-33027412-3");
     </script>
 
-    <title>James Anderson</title>
+    <title>Flyover - James Anderson</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta
       name="description"
-      content="Software engineer in Brooklyn, NY. Get in touch!"
+      content="A Blue Angels / Thunderbirds flyover of New York City to support COVID-19 responders."
     >
     <style>
       html {
@@ -29,12 +29,6 @@
         font-weight: 900;
         height: 100%;
         width: 100%;
-        display: -webkit-box;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-        align-items: center;
         justify-content: center;
       }
       a,
@@ -43,7 +37,7 @@
         color: #333;
         text-decoration: none;
       }
-      #name {
+      #name, #name a {
         font-size: 1.5em;
         color: blue;
         border-bottom: 3px solid #eee;
@@ -66,18 +60,49 @@
       article {
         text-align: center;
       }
+      img {
+        width: 90%;
+        height: auto;
+        margin: 1em 0;
+        border: 1em solid #eee;
+      }
+      #video {
+        width: 960px;
+        height: auto;
+        border: 1em solid #eee;
+      }
+      @media only screen and (max-width: 1000px) {
+        #video {
+            width: 90%;
+        }
+      }
     </style>
   </head>
   <body>
     <article>
-      <p><span id="name">James Anderson</span></p>
-      <p>Hi, I'm James. I write software in Brooklyn, NY.</p>
-      <ul>
-        <li>
-          <a href="mailto:james@jamesa.me" id="contact-link">get in touch</a>
-        </li>
-      </ul>
-      <!-- todo: add more links ;) -->
+      <p>
+        <span id="name"><a href="/">James Anderson</a></span>
+      </p>
+      <p>Flyover - April 28, 2020.</p>
+      <video id="video" controls></video>
     </article>
+
+    <!-- Use HLS.js to support the HLS format in browsers. -->
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@0.8.2"></script>
+    <script>
+      (function(){
+        // Replace with your asset's playback ID
+        var playbackId = "BpvbWScAwbd02NkavYO62f9dB8sMNl6Vw";
+        var url = "https://stream.mux.com/"+playbackId+".m3u8";
+
+        // HLS.js-specific setup code
+        if (Hls.isSupported()) {
+          var video = document.getElementById("video");
+          var hls = new Hls();
+          hls.loadSource(url);
+          hls.attachMedia(video);
+        }
+      })();
+    </script>
   </body>
 </html>
