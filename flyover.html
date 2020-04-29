@@ -14,14 +14,16 @@
 
       gtag("config", "UA-33027412-3");
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 
     <title>Flyover - James Anderson</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
     <meta
       name="description"
       content="A Blue Angels / Thunderbirds flyover of New York City to support COVID-19 responders."
-    >
+    />
+    <link href="//vjs.zencdn.net/7.3.0/video-js.min.css" rel="stylesheet" />
     <style>
       html {
         color: #333;
@@ -37,7 +39,8 @@
         color: #333;
         text-decoration: none;
       }
-      #name, #name a {
+      #name,
+      #name a {
         font-size: 1.5em;
         color: blue;
         border-bottom: 3px solid #eee;
@@ -73,7 +76,7 @@
       }
       @media only screen and (max-width: 1000px) {
         #video {
-            width: 90%;
+          width: 90%;
         }
       }
     </style>
@@ -84,7 +87,29 @@
         <span id="name"><a href="/">James Anderson</a></span>
       </p>
       <p>Flyover - April 28, 2020.</p>
-      <video id="video" controls src="https://stream.mux.com/BpvbWScAwbd02NkavYO62f9dB8sMNl6Vw.m3u8"></video>
+      <video
+        id="video"
+        controls
+        src="https://stream.mux.com/BpvbWScAwbd02NkavYO62f9dB8sMNl6Vw.m3u8"
+      ></video>
     </article>
+    <script>
+      var video = document.getElementById("video");
+      var videoSrc =
+        "https://stream.mux.com/BpvbWScAwbd02NkavYO62f9dB8sMNl6Vw.m3u8";
+      if (Hls.isSupported()) {
+        var hls = new Hls();
+        hls.loadSource(videoSrc);
+        hls.attachMedia(video);
+        hls.on(Hls.Events.MANIFEST_PARSED, function () {
+          video.play();
+        });
+      } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
+        video.src = videoSrc;
+        video.addEventListener("loadedmetadata", function () {
+          video.play();
+        });
+      }
+    </script>
   </body>
 </html>
