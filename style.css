@@ -60,11 +60,18 @@ img {
   margin: 1em auto;
   border: 1em solid #eee;
 }
+.map-popup h3 {
+  padding: 0;
+}
 .map-popup {
   font-size: 1.5em;
+  box-sizing: border-box;
 }
 .map-popup a {
   color: blue;
+}
+.map-popup a:hover {
+  text-decoration: underline;
 }
 .map-popup p {
   text-align: center;
@@ -89,7 +96,11 @@ img {
   padding: 0 1em;
 }
 .map-popup img {
-  padding: 1em;
+  padding: 0;
+  width: calc(100% - 1em);
+  height: auto;
+  margin: .5em 0 0 0;
+  border: .5em solid #eee;
 }
 
 @media only screen and (max-width: 1000px) {
