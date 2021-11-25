@@ -107,4 +107,12 @@ img {
   #video {
     width: 90%;
   }
+  .map-popup h3 {
+    text-align: center;
+  }
+  .map-popup .view-full-image {
+    margin: 1em 0;
+    position: static;
+    display: block;
+  }
 }
