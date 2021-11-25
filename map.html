@@ -20,6 +20,7 @@
     <meta charset="utf-8" />
     <meta name="description" content="A map and some photos." />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://css.gg/css?=|external" />
 
     <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js"></script>
     <link
@@ -66,13 +67,23 @@
           Create a popup, specify its options 
           and properties, and add it to the map.
         */
-        const popup = new mapboxgl.Popup({ offset: [0, -15] })
+        const popup = new mapboxgl.Popup({
+          offset: [0, -15],
+          className: "map-popup",
+          maxWidth: "50%",
+        })
           .setLngLat(feature.geometry.coordinates)
           .setHTML(
             `
-            <h3>${feature.properties.title}</h3>
-            <p><img src="/images/map/${feature.properties.image}.jpg"></p>
-            <p><a href="/images/map/${feature.properties.image}.jpg" target="_blank">View full Image</a></p>
+            <h3>
+              ${feature.properties.title}
+              <a href="/images/map/${feature.properties.image}.jpg" target="_blank" class="view-full-image">
+                View full Image <i class="gg-external"></i>
+              </a>
+            </h3>
+            <p>
+              <img src="/images/map/${feature.properties.image}.jpg">
+            </p>
             `
           )
           .addTo(map);
