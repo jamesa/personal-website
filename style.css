@@ -66,6 +66,7 @@ img {
 .map-popup {
   font-size: 1.5em;
   box-sizing: border-box;
+  min-width: 50%;
 }
 .map-popup a {
   color: blue;
