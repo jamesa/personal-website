@@ -67,6 +67,7 @@
         }
 
         const feature = features[0];
+        const featureTitle = feature.properties.title ? feature.properties.title : "Image #" + feature.properties.image;
 
         /*
           Create a popup, specify its options 
@@ -81,7 +82,7 @@
           .setHTML(
             `
             <h3>
-              ${feature.properties.title}
+              ${featureTitle}
               <a href="/images/map/${feature.properties.image}.jpg" target="_blank" class="view-full-image">
                 View full Image<i class="gg-external"></i>
               </a>
