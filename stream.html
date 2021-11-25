@@ -1,52 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+  <head>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-33027412-3"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-<head>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-33027412-3"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag("js", new Date());
+      gtag("config", "UA-33027412-3");
+    </script>
 
-    gtag("config", "UA-33027412-3");
-  </script>
+    <title>Stream - James Anderson</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta name="description" content="James Anderson is livestreaming!" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-  <title>Stream - James Anderson</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta charset="utf-8" />
-  <meta name="description" content="James Anderson is livestreaming!" />
-  <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-  <article>
-    <p>
-      <span id="name"><a href="/">James Anderson</a></span>
-    </p>
-    <p>James' Cool Livestream</p>
+  <body>
+    <article>
+      <p>
+        <span id="name"><a href="/">James Anderson</a></span>
+      </p>
+      <p>James' Cool Livestream</p>
       <!-- padding-top calculation is height / width (assuming 16:9 aspect ratio) -->
-    <div style="position: relative; padding-top: 56.25%;">
-      <iframe src="https://iframe.videodelivery.net/11e76ef28672c8749abf61e345cfeab0?autoplay=true&muted=true"
-        style="border: none; position: absolute; top: 0; left: 0; height: 100%; width: 100%;"
-        allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-        allowfullscreen="true"></iframe>
-    </div>
-  </article>
-  <script src="https://embed.videodelivery.net/embed/sdk.latest.js"></script>
-  <script>
-    const player = Stream(document.getElementById('stream-player'))
-    player.addEventListener('play', () => {
-      console.log('playing!')
-    })
-    player.play().catch(() => {
-      console.log('playback failed, muting to try again')
-      player.muted = true
-      player.play()
-    })
-  </script>
-
-</body>
-
+      <div style="position: relative; padding-top: 56.25%">
+        <iframe
+          src="https://iframe.videodelivery.net/11e76ef28672c8749abf61e345cfeab0?autoplay=true&muted=true"
+          style="
+            border: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+          "
+          allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+          allowfullscreen="true"
+        ></iframe>
+      </div>
+    </article>
+    <script src="https://embed.videodelivery.net/embed/sdk.latest.js"></script>
+    <script>
+      const player = Stream(document.getElementById("stream-player"));
+      player.addEventListener("play", () => {
+        console.log("playing!");
+      });
+      player.play().catch(() => {
+        console.log("playback failed, muting to try again");
+        player.muted = true;
+        player.play();
+      });
+    </script>
+  </body>
 </html>

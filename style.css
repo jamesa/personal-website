@@ -53,9 +53,15 @@ img {
     height: auto;
     border: 1em solid #eee;
 }
+#map {
+    width: 90%;
+    height: 600px;
+    margin: 1em auto;
+    border: 1em solid #eee;
+}
+
 @media only screen and (max-width: 1000px) {
     #video {
         width: 90%;
     }
 }
-

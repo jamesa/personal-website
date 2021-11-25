@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-33027412-3"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-33027412-3");
+    </script>
+
+    <title>Property Map - James Anderson</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta name="description" content="A map and some photos." />
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css"
+    />
+  </head>
+  <body>
+    <article>
+      <p>
+        <span id="name"><a href="/">James Anderson</a></span>
+      </p>
+      <p>Property Map</p>
+      <div id="map"></div>
+    </article>
+    <script>
+      mapboxgl.accessToken =
+        "pk.eyJ1IjoiamFtZXMtYW5kZXJzb24iLCJhIjoiY2t3ZTJnMmFwMDBseTJ3bTU5Y3ozb2JsbyJ9.rcBGcedvIyUaqFj4XcV5gQ";
+      const map = new mapboxgl.Map({
+        container: "map",
+        style: "mapbox://styles/james-anderson/ckwe02fiv3oxm14t8rft2684e",
+        center: [-77.534451, 42.968974],
+        zoom: 16.49,
+      });
+      map.addControl(new mapboxgl.FullscreenControl());
+
+      /*
+        Add an event listener that runs
+        when a user clicks on the map element.
+      */
+      map.on("click", (event) => {
+        // If the user clicked on one of your markers, get its information.
+        const features = map.queryRenderedFeatures(event.point, {
+          layers: ["lot-photo-locations"], // replace with your layer name
+        });
+
+        if (!features.length) {
+          return;
+        }
+
+        const feature = features[0];
+
+        /*
+          Create a popup, specify its options 
+          and properties, and add it to the map.
+        */
+        const popup = new mapboxgl.Popup({ offset: [0, -15] })
+          .setLngLat(feature.geometry.coordinates)
+          .setHTML(
+            `
+            <h3>${feature.properties.title}</h3>
+            <p><img src="/images/map/${feature.properties.image}.jpg"></p>
+            <p><a href="/images/map/${feature.properties.image}.jpg" target="_blank">View full Image</a></p>
+            `
+          )
+          .addTo(map);
+      });
+    </script>
+  </body>
+</html>
