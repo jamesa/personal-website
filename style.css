@@ -90,6 +90,10 @@ img {
   position: relative;
   text-align: left;
 }
+.map-popup h3 span {
+  display: inline-block;
+  max-width: 70%;
+}
 .map-popup .view-full-image {
   font-size: 0.8em;
   position: absolute;
@@ -110,6 +114,9 @@ img {
   }
   .map-popup h3 {
     text-align: center;
+  }
+  .map-popup h3 span {
+    max-width: 100%;
   }
   .map-popup .view-full-image {
     margin: 1em 0;
